@@ -5,12 +5,15 @@ import drg from "./img/Dragoon.png";
 import sge from "./img/Sage.png";
 import {useEffect, useState} from "react";
 import './DamageMeter.css';
+import DropdownMenu from './Dropdown.js';
+
+window.anim = true;
 
 function DamageMeter() {
     return(
       <div className="rounded-xl flexshadow-lg bg-zinc-700 bg-opacity-50">
       <div className="pb-5">
-        <TopHeader />
+        <TopHeader/>
         <div className="container">
           <BarGraph />
         </div>
@@ -31,11 +34,7 @@ function TopHeader() {
           Total DPS 696,696
         </div>
       </div>
-      <div className="flex md:flex-grow items-center px-1 justify-end">
-        <div className="rotate-90 text-5xl">
-          ...
-        </div>
-      </div>
+      <DropdownMenu/>
     </div>
   );
 }
@@ -65,17 +64,38 @@ function Timer() {
 }
 
 function BarGraph() {
+  var dataArray = [];
+
+  function setMargin(id, num) {
+    var css = document.querySelector("#"+id);
+    css.style.setProperty('--margin', num + '%');
+  }
+
+  function barHandler() {
+    if (window.anim) {
+      dataArray.forEach((element) => {
+        // 0 = id, 1 = value, 2 = array
+        setMargin(element[0], element[2][element[1]]);
+        element[1] += 1;
+        if (element[1] === element[2].length) {
+          element[1] = 0;
+        }
+      });
+    }
+  }
+
+  setInterval(barHandler, 3000);
   return(
       <table className="bg-zinc-800">
         <thead>
           <BarHeader />
         </thead>
         <tbody>
-          <Bar name="Frey Luna" color="bg-yellow-300/30" percent="right-[0%]" job={gnb} id=""/>
-          <Bar name="FFLogs" color="bg-blue-800/30" percent="right-[10%]" job={drg} id="fflogs"/>
-          <Bar name="Github" color="bg-lime-300/30" percent="right-[30%]" job={brd} id="github"/>
-          <Bar name="Twitter" color='bg-blue-300/30' percent="right-[50%]" job={sge} id="twitter"/>
-          <Bar name="YOU" color="bg-red-500/30" percent="right-[80%]" job={war} id="you"/>
+          <Bar name="Frey Luna" color="bg-yellow-300/30" percent="right-[0%]" job={gnb} id="" dataArray={dataArray}/>
+          <Bar name="FFLogs" color="bg-blue-800/30" percent="right-[10%]" job={drg} id="fflogs" dataArray={dataArray}/>
+          <Bar name="Github" color="bg-lime-300/30" percent="right-[30%]" job={brd} id="github" dataArray={dataArray}/>
+          <Bar name="Twitter" color='bg-blue-300/30' percent="right-[50%]" job={sge} id="twitter" dataArray={dataArray}/>
+          <Bar name="YOU" color="bg-red-500/30" percent="right-[80%]" job={war} id="you" dataArray={dataArray}/>
         </tbody>
       </table>
     );
@@ -105,20 +125,20 @@ function BarHeader() {
   );
 }
 
-function Bar({name, color, percent, job, id}) {
-
-  function setMargin(id, num) {
-    var css = document.querySelector("#"+id);
-    css.style.setProperty('--margin', num + '%');
-  }
-
-  function randomizeBar(id) {
-    var random = Math.random() * 10 - 5;
-    setMargin(id, random)
-  }
-
+function Bar({name, color, percent, job, id, dataArray}) {
+  
   if (id.length !== 0) {
-    setInterval(function() { randomizeBar(id);}, 3000);
+    const primes = [5, 7, 11, 13, 17, 19, 23, 29];
+    var prime = primes[Math.floor(Math.random()*primes.length)];
+    var tempArray = [];
+    var delayArray = [];
+    for (const x of Array(prime).keys()) {
+      delayArray.push(Math.random() * 15 - 7.5);
+    };
+    tempArray.push(id);
+    tempArray.push(0);
+    tempArray.push(delayArray);
+    dataArray.push(tempArray);
   }
 
   return(
@@ -126,7 +146,7 @@ function Bar({name, color, percent, job, id}) {
       <td className="">
         <img src={job} className="object-scale-down h-10 z-10"/>
       </td>
-      <td className="px-16">
+      <td className="px-16 text-center">
         {name}
       </td>
       <td className="">
@@ -148,7 +168,7 @@ function Bar({name, color, percent, job, id}) {
         0
       </td>
       <td className={"inset-0 absolute bg-opacity-50 z-0 freyf " + percent}>
-        <div className={color + " absolute freyff"} id={id}></div>
+        <div className={color + " absolute dpsbar"} id={id}></div>
       </td>
     </tr>
   )

@@ -42,10 +42,16 @@
   }
 }
 
-.freyff{
+.dpsbar{
   inset: 0%;
   animation-duration: 3s;
   animation-name: changewidth;
   animation-iteration-count: infinite;
   animation-direction: normal;
+  animation-play-state: var(--animps, running);
 }
+
+/*
+#settings {
+  visibility: hidden;
+}*/
