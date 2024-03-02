@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --margin: 0%;
+}
 
 @layer table {
   tr {
@@ -19,19 +22,30 @@
 
 @keyframes changewidth {
   from {
-    right: 0;
+    right: 0%;
+  }
+
+  25% {
+    right: 0%;
+  }
+
+  35% {
+    right: var(--margin);
+  }
+
+  90% {
+    right: var(--margin);
   }
 
   to {
-    right: 10%;
+    right: 0%;
   }
 }
 
 .freyff{
   inset: 0%;
-  transition: right 0.1s linear;
-  animation-duration: 1s;
+  animation-duration: 3s;
   animation-name: changewidth;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: normal;
 }
