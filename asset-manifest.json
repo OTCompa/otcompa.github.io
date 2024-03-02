@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/frey-react/static/css/main.6de7cd6b.css",
-    "main.js": "/frey-react/static/js/main.9096ae78.js",
+    "main.css": "/frey-react/static/css/main.f77c91bc.css",
+    "main.js": "/frey-react/static/js/main.19dea7bf.js",
     "static/js/453.78173f6c.chunk.js": "/frey-react/static/js/453.78173f6c.chunk.js",
     "static/media/Warrior.png": "/frey-react/static/media/Warrior.80c3109f2fc48e261f23.png",
     "index.html": "/frey-react/index.html",
-    "main.6de7cd6b.css.map": "/frey-react/static/css/main.6de7cd6b.css.map",
-    "main.9096ae78.js.map": "/frey-react/static/js/main.9096ae78.js.map",
+    "main.f77c91bc.css.map": "/frey-react/static/css/main.f77c91bc.css.map",
+    "main.19dea7bf.js.map": "/frey-react/static/js/main.19dea7bf.js.map",
     "453.78173f6c.chunk.js.map": "/frey-react/static/js/453.78173f6c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6de7cd6b.css",
-    "static/js/main.9096ae78.js"
+    "static/css/main.f77c91bc.css",
+    "static/js/main.19dea7bf.js"
   ]
 }
