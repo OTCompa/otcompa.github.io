@@ -1,11 +1,7 @@
-import gnb from './img/Gunbreaker.png';
-import war from "./img/Warrior.png";
-import brd from "./img/Bard.png";
-import drg from "./img/Dragoon.png";
-import sge from "./img/Sage.png";
 import {useEffect, useState} from "react";
 import './DamageMeter.css';
 import DropdownMenu from './Dropdown.js';
+import barData from './Bars.js';
 
 window.anim = true;
 
@@ -24,7 +20,7 @@ function DamageMeter() {
   
 function TopHeader() {
   return(
-    <div className="flex flex-row">
+    <div className="flex flex-row handle">
       <Timer />
       <div className="px-2 py-2">
         <div className="text-left">
@@ -64,6 +60,8 @@ function Timer() {
 }
 
 function BarGraph() {
+
+  // handles bar width animations
   var dataArray = [];
 
   function setMargin(id, num) {
@@ -85,17 +83,26 @@ function BarGraph() {
   }
 
   setInterval(barHandler, 3000);
+  
+
+  const barItems = barData.map(bar =>
+    <Bar
+    name={bar.name}
+    color={bar.color}
+    percent={bar.percent}
+    job={bar.job}
+    id={bar.id}
+    dataArray={dataArray}
+    />
+    );
+
   return(
       <table className="bg-zinc-800">
         <thead>
           <BarHeader />
         </thead>
         <tbody>
-          <Bar name="Frey Luna" color="bg-yellow-300/30" percent="right-[0%]" job={gnb} id="" dataArray={dataArray}/>
-          <Bar name="FFLogs" color="bg-blue-800/30" percent="right-[10%]" job={drg} id="fflogs" dataArray={dataArray}/>
-          <Bar name="Github" color="bg-lime-300/30" percent="right-[30%]" job={brd} id="github" dataArray={dataArray}/>
-          <Bar name="Twitter" color='bg-blue-300/30' percent="right-[50%]" job={sge} id="twitter" dataArray={dataArray}/>
-          <Bar name="YOU" color="bg-red-500/30" percent="right-[80%]" job={war} id="you" dataArray={dataArray}/>
+          {barItems}
         </tbody>
       </table>
     );
@@ -114,8 +121,8 @@ function BarHeader() {
     "Deaths"
   ]
 
-  const headings = headers.map((hero, index)=>
-    <th key={index}>{hero}</th>)
+  const headings = headers.map((header, index)=>
+    <th key={index}>{header}</th>)
 
   return(
     <tr>
@@ -132,9 +139,9 @@ function Bar({name, color, percent, job, id, dataArray}) {
     var prime = primes[Math.floor(Math.random()*primes.length)];
     var tempArray = [];
     var delayArray = [];
-    for (const x of Array(prime).keys()) {
+    for (var i = 0; i < prime; i++) {
       delayArray.push(Math.random() * 15 - 7.5);
-    };
+    }
     tempArray.push(id);
     tempArray.push(0);
     tempArray.push(delayArray);
