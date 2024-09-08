@@ -51,6 +51,36 @@
   animation-play-state: var(--animps, running);
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
+.hoverField {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.hoverField span {
+  grid-row-start: 1;
+  grid-column-start: 1;
+ }
+
+.hoverField:hover span.defaultText {
+  display: none;
+}
+
+.hoverField span.hoverText {
+  display: none;
+}
+
+.hoverField:hover span.hoverText {
+  display: contents;
+}
+
+.hoverField span.minLengthText {
+  visibility: hidden;
+}
+
 /*
 #settings {
   visibility: hidden;

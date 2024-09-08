@@ -93,6 +93,8 @@ function BarGraph() {
     job={bar.job}
     id={bar.id}
     dataArray={dataArray}
+    url={bar.url}
+    hover={bar.hover}
     />
     );
 
@@ -132,7 +134,7 @@ function BarHeader() {
   );
 }
 
-function Bar({name, color, percent, job, id, dataArray}) {
+function Bar({name, color, percent, job, id, dataArray, url, hover}) {
   
   if (id.length !== 0) {
     const primes = [5, 7, 11, 13, 17, 19, 23, 29];
@@ -154,7 +156,7 @@ function Bar({name, color, percent, job, id, dataArray}) {
         <img src={job} className="object-scale-down h-10 z-10"/>
       </td>
       <td className="px-16 text-center">
-        {name}
+        <BarItem name={name} url={url} hover={hover} />
       </td>
       <td className="">
         696,969
@@ -179,6 +181,35 @@ function Bar({name, color, percent, job, id, dataArray}) {
       </td>
     </tr>
   )
+}
+
+function BarItem({name, url, hover}) {
+  console.log(url)
+  if (url) {
+    return(
+      <a href={url} target="_blank">{name}</a>
+    )
+  } else if (hover) {
+    var longest = hover;
+    if (hover.length < name.length) {
+      longest = name
+    }
+    return(
+      <p class="hoverField">
+        <span>
+          <span class="minLengthText">{longest}</span>
+        </span>
+        <span>
+          <span class="defaultText">{name}</span>
+          <span class="hoverText">{hover}</span>
+        </span>
+      </p>
+    )
+  } else {
+    return(
+      <p>{name}</p>
+    )
+  }
 }
 
 export default DamageMeter;

@@ -23,7 +23,7 @@ function DropdownMenu() {
 
       <div className="flex md:flex-grow px-1 justify-end">
         <button 
-        className="relative hover:bg-zinc-800 rounded-lg py-1 px-3 my-2"
+        className="relative hover:bg-zinc-800 rounded-full px-3.5  m-2"
         onClick={()=>{setOpen(!open)}}
         >
             <svg
@@ -46,7 +46,7 @@ function DropdownMenu() {
     <div className={'p2'}>
         <a
         href="#"
-        className="block rounded-lg px-4 py-4  text-lg hover:bg-gray-50 hover:text-gray-700 text-white dark:hover:bg-gray-800 dark:hover:text-gray-300"
+        className="block px-4 py-4  text-lg hover:bg-gray-50 hover:text-gray-700 text-white dark:hover:bg-gray-800 dark:hover:text-gray-300"
         role="menuitem"
         onClick={()=>{toggleAnimation()}}
         >

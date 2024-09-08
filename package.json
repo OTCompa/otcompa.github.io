@@ -1,7 +1,7 @@
 {
   "name": "frey-app",
   "version": "0.1.0",
-  "homepage": "https://otcompa.github.io/frey-react",
+  "homepage": "https://otcompa.github.io/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
