@@ -64,25 +64,28 @@ function BarGraph() {
   // handles bar width animations
   var dataArray = [];
 
-  function setMargin(id, num) {
-    var css = document.querySelector("#"+id);
-    css.style.setProperty('--margin', num + '%');
-  }
+  // function setWidth(id, num) {
+  //   var bar = document.querySelector("#" + id)
+  //   if (num < 0) {
+  //     num = 0;
+  //   }
+  //   bar.setAttribute("style", "width:" + num + "%")
+  // }
 
-  function barHandler() {
-    if (window.anim) {
-      dataArray.forEach((element) => {
-        // 0 = id, 1 = value, 2 = array
-        setMargin(element[0], element[2][element[1]]);
-        element[1] += 1;
-        if (element[1] === element[2].length) {
-          element[1] = 0;
-        }
-      });
-    }
-  }
+  // function barHandler() {
+  //   if (window.anim) {
+  //     dataArray.forEach((element) => {
+  //       // 0 = id, 1 = value, 2 = array
+  //       setWidth(element[0], element[2][element[1]]);
+  //       element[1] += 1;
+  //       if (element[1] === element[2].length) {
+  //         element[1] = 0;
+  //       }
+  //     });
+  //   }
+  // }
 
-  setInterval(barHandler, 3000);
+  // setInterval(barHandler, 3000);
   
 
   const barItems = barData.map(bar =>
@@ -151,12 +154,12 @@ function Bar({name, color, percent, job, id, dataArray, url, hover}) {
   }
 
   return(
-    <tr className="relative text-left w-96">
+    <tr className={`relative text-left w-96 transition-all ${color}`}>
       <td className="">
         <img src={job} className="object-scale-down h-10 z-10"/>
       </td>
       <td className="px-16 text-center">
-        <BarItem name={name} url={url} hover={hover} />
+        <BarItem name={name} url={url} hover={hover}/>
       </td>
       <td className="">
         696,969
@@ -176,14 +179,11 @@ function Bar({name, color, percent, job, id, dataArray, url, hover}) {
       <td className="text-center">
         0
       </td>
-      <td className={"inset-0 absolute bg-opacity-50 z-0 freyf " + percent}>
-        <div className={color + " absolute dpsbar"} id={id}></div>
-      </td>
     </tr>
   )
 }
 
-function BarItem({name, url, hover}) {
+function BarItem({name, url, hover, className}) {
   console.log(url)
   if (url) {
     return(
@@ -195,7 +195,7 @@ function BarItem({name, url, hover}) {
       longest = name
     }
     return(
-      <p class="hoverField">
+      <p class={`hoverField${className ? " " + className : ""}`}>
         <span>
           <span class="minLengthText">{longest}</span>
         </span>

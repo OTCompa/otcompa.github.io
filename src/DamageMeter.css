@@ -25,16 +25,20 @@
     right: 0%;
   }
 
-  25% {
+  15% {
     right: 0%;
   }
 
-  35% {
+  25% {
     right: var(--margin);
   }
 
-  90% {
+  75% {
     right: var(--margin);
+  }
+
+  85% {
+    right: 0%;
   }
 
   to {
@@ -44,11 +48,11 @@
 
 .dpsbar{
   inset: 0%;
-  animation-duration: 3s;
+  /* animation-duration: 3s;
   animation-name: changewidth;
   animation-iteration-count: infinite;
   animation-direction: normal;
-  animation-play-state: var(--animps, running);
+  animation-play-state: var(--animps, running); */
 }
 
 a:hover {

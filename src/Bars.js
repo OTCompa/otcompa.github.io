@@ -5,38 +5,47 @@ import drg from "./img/Dragoon.png";
 import sge from "./img/Sage.png";
 import mch from "./img/Machinist.png";
 import ast from "./img/Astrologian.png";
+import blm from "./img/BlackMage.png";
 
 const barData = [
     {
       job:gnb,
-      color:"bg-yellow-300/30",
+      color:"bg-gradient-to-r from-yellow-300/30 via-yellow-300/30 via-50% to-yellow-300/0 to-50% hover:from-yellow-300/30 hover:via-yellow-300/30 hover:via-90% hover:to-yellow-300/0 hover:to-90%",
       percent:"right-[0%]",
       name: "Frey Luna",
       id:""
     },
     {
-      job:drg,
-      color:"bg-blue-800/30",
-      percent:"right-[10%]",
+      job:blm,
+      color:"bg-[#b589e6]/30",
+      percent:"right-[5%]",
       name:"Discord",
       id:"discord",
-      hover:"onetruecompa"
+      hover:"ucob"
     },
     {
-      job: mch,
-      color:"bg-cyan-300/30",
+      job:drg,
+      color:"bg-blue-800/30",
       percent:"right-[15%]",
       name:"Github",
       id:"github",
       url:"https://github.com/OTCompa"
     },
     {
-      job:brd,
-      color:"bg-lime-300/30",
-      percent:"right-[30%]",
+      job: mch,
+      color:"bg-cyan-300/30",
+      percent:"right-[20%]",
       name:"Twitter",
       id:"twitter",
       url:"https://twitter.com/OneTrueCompa"
+    },
+    {
+      job:brd,
+      color:"bg-lime-300/30",
+      percent:"right-[30%]",
+      name:"Twitch",
+      id:"twitch",
+      url:"https://www.twitch.tv/onetruecompa"
     },
     {
       job:sge,
