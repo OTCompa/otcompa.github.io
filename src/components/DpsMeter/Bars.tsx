@@ -1,8 +1,6 @@
 import { BarProps, info } from "@/app/info";
-import { Bar } from "./BarRow";
+import Bar from "./Bar";
 
-export function Bars({ numCols }: { numCols: string }) {
-  return info.map((data: BarProps) => (
-    <Bar key={data.id} data={data} numCols={numCols} />
-  ));
+export function Bars() {
+  return info.map((data: BarProps) => <Bar key={data.id} data={data} />);
 }

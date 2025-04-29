@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={clsx(robotoFlex.className, "antialiased")}>
+      <body className={clsx(robotoFlex.className, "antialiased h-screen")}>
         {children}
       </body>
     </html>

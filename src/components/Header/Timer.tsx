@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useAnimationContext } from "../DpsMeter/AnimationContext";
+import { useDpsMeterContext } from "../DpsMeter/DpsMeterContext";
 
 function Timer() {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  const { animations } = useAnimationContext();
+  const { animations } = useDpsMeterContext();
 
   useEffect(() => {
     const timer = setInterval(() => {

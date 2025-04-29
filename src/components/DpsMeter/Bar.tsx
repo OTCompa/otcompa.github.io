@@ -4,7 +4,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { Cell } from "./Cell";
 import { useEffect } from "react";
-import { useAnimationContext } from "./AnimationContext";
+import { useDpsMeterContext } from "./DpsMeterContext";
 import CellName from "./CellName";
 
 function randomizeBar(data: BarProps) {
@@ -14,8 +14,8 @@ function randomizeBar(data: BarProps) {
   document.getElementById(data.id)?.setAttribute("style", `width:${width}%`);
 }
 
-export function Bar({ data, numCols }: { data: BarProps; numCols: string }) {
-  const { animations } = useAnimationContext();
+function Bar({ data }: { data: BarProps }) {
+  const { animations, isMobile, colSetup } = useDpsMeterContext();
   useEffect(() => {
     const randomizer = setInterval(() => {
       if (!animations) return;
@@ -37,7 +37,7 @@ export function Bar({ data, numCols }: { data: BarProps; numCols: string }) {
       <div
         className={clsx(
           "relative grid grid-cols-4 text-center text-lg",
-          numCols
+          colSetup
         )}
       >
         <Cell>
@@ -46,12 +46,20 @@ export function Bar({ data, numCols }: { data: BarProps; numCols: string }) {
         <Cell>
           <CellName data={data} />
         </Cell>
-        <Cell>696,696</Cell>
-        <Cell>6%</Cell>
-        <Cell>9%</Cell>
-        <Cell>69%</Cell>
+        <Cell>69,696</Cell>
+        {isMobile ? (
+          <></>
+        ) : (
+          <>
+            <Cell>6%</Cell>
+            <Cell>9%</Cell>
+            <Cell>69%</Cell>
+          </>
+        )}
         <Cell>0</Cell>
       </div>
     </div>
   );
 }
+
+export default Bar;

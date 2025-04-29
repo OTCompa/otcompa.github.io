@@ -1,4 +1,4 @@
-import { useAnimationContext } from "@/components/DpsMeter/AnimationContext";
+import { useDpsMeterContext } from "@/components/DpsMeter/DpsMeterContext";
 import { useState } from "react";
 
 function HamburgerIcon() {
@@ -12,7 +12,7 @@ function HamburgerIcon() {
 }
 
 function Menu({ closeFunc }: { closeFunc: () => void }) {
-  const { toggleAnimations } = useAnimationContext();
+  const { toggleAnimations } = useDpsMeterContext();
   return (
     <div className="absolute right-0 z-20 w-48 text-white bg-[#202020] rounded-md shadow-lg">
       <ul className="flex flex-col">
