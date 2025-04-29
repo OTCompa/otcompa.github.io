@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
 
 const robotoFlex = Roboto_Flex({
-  variable: "--font-roboto-flex",
   subsets: ["latin"],
 });
 
@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoFlex.variable} antialiased`}>{children}</body>
+      <body className={clsx(robotoFlex.className, "antialiased")}>
+        {children}
+      </body>
     </html>
   );
 }
