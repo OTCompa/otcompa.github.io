@@ -1,12 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useAnimationContext } from "../DpsMeter/AnimationContext";
 
 function Timer() {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
+  const { animations } = useAnimationContext();
 
   useEffect(() => {
     const timer = setInterval(() => {
+      if (!animations) return;
       setSeconds((prevSeconds) => {
         const tempSeconds = prevSeconds + 1;
         if (tempSeconds > 59) {
@@ -18,7 +21,7 @@ function Timer() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [animations]);
 
   return (
     <div className="tabular-nums">
