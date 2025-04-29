@@ -3,10 +3,13 @@ import { BarProps } from "@/app/info";
 import clsx from "clsx";
 import Image from "next/image";
 import { Cell } from "./Cell";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAnimationContext } from "./AnimationContext";
 
 function CellName({ data }: { data: BarProps }) {
+  const [showCell, setShowCell] = useState(false);
+  const toggleCell = () => setShowCell((prev) => !prev);
+
   let longest = "";
   if (data.hoverText) {
     longest =
@@ -31,9 +34,13 @@ function CellName({ data }: { data: BarProps }) {
           <span className="invisible">{longest}</span>
         </span>
         <span className="col-start-1 row-start-1">
-          <span className="block group-hover/cell:hidden">{data.name}</span>
-          <span className="hidden group-hover/cell:contents">
-            {data.hoverText}
+          <span
+            onClick={toggleCell}
+            className={clsx("hover:underline hover:cursor-pointer", {
+              "select-none": !showCell,
+            })}
+          >
+            {showCell ? data.hoverText : data.name}
           </span>
         </span>
       </p>
