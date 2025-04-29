@@ -11,13 +11,20 @@ function HamburgerIcon() {
   );
 }
 
-function Menu() {
+function Menu({ closeFunc }: { closeFunc: () => void }) {
   const { toggleAnimations } = useAnimationContext();
   return (
-    <div className="absolute right-0 z-20 w-48 mt-2 text-white bg-[#202020] rounded-md shadow-lg">
+    <div className="absolute right-0 z-20 w-48 text-white bg-[#202020] rounded-md shadow-lg">
       <ul className="flex flex-col">
         <li className="px-4 py-2 hover:bg-[#2B2B2B]">
-          <button onClick={toggleAnimations}>Toggle Animations</button>
+          <button
+            onClick={() => {
+              closeFunc();
+              toggleAnimations();
+            }}
+          >
+            Toggle Animations
+          </button>
         </li>
       </ul>
     </div>
@@ -39,7 +46,7 @@ function HamburgerMenu() {
           <HamburgerIcon />
         </button>
       </div>
-      {menuOpen && <Menu />}
+      {menuOpen && <Menu closeFunc={toggleMenu} />}
     </div>
   );
 }
