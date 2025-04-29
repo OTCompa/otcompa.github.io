@@ -15,7 +15,7 @@ export interface BarProps {
   name: string;
   range: [number, number];
   url?: string;
-  hoverText?: string;
+  toggleText?: string;
 }
 
 export const info: BarProps[] = [
@@ -32,7 +32,7 @@ export const info: BarProps[] = [
     range: [90, 99],
     name: "Discord",
     id: "discord",
-    hoverText: "ucob",
+    toggleText: "ucob",
   },
   {
     job: drg,

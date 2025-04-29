@@ -8,9 +8,9 @@ function CellName({ data }: { data: BarProps }) {
   const toggleCell = () => setShowCell((prev) => !prev);
 
   let longest = "";
-  if (data.hoverText) {
+  if (data.toggleText) {
     longest =
-      data.hoverText.length > data.name.length ? data.hoverText : data.name;
+      data.toggleText.length > data.name.length ? data.toggleText : data.name;
   } else {
     return (
       <>
@@ -26,7 +26,7 @@ function CellName({ data }: { data: BarProps }) {
   }
   return (
     <>
-      <p className="grid grid-cols-1">
+      <p className="grid w-full grid-cols-1">
         <span className="col-start-1 row-start-1">
           <span className="invisible">{longest}</span>
         </span>
@@ -37,7 +37,7 @@ function CellName({ data }: { data: BarProps }) {
               "select-none": !showCell,
             })}
           >
-            {showCell ? data.hoverText : data.name}
+            {showCell ? data.toggleText : data.name}
           </span>
         </span>
       </p>
