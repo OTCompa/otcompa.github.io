@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useDpsMeterContext } from "../DpsMeter/DpsMeterContext";
+import { useDpsMeterContext } from "../DpsMeterContext";
 
 function Timer() {
   const [seconds, setSeconds] = useState(0);

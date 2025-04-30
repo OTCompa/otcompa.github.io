@@ -54,9 +54,9 @@ function Bar({ data }: { data: BarProps }) {
             <Cell>6%</Cell>
             <Cell>9%</Cell>
             <Cell>69%</Cell>
+            <Cell>0</Cell>
           </>
         )}
-        <Cell>0</Cell>
       </div>
     </div>
   );

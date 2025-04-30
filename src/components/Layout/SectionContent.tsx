@@ -1,6 +1,6 @@
 function SectionContent({ children }: { children: React.ReactNode }) {
   return (
-    <div className="container p-10 rounded-sm xl:p-20 min-h-[calc(75vh-3.5rem)] bg-[#27272a]">
+    <div className="max-w-4xl container p-6 min-h-[calc(100vh-3.5rem)] m-auto">
       {children}
     </div>
   );

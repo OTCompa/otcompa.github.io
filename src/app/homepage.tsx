@@ -33,7 +33,7 @@ function Content({
 }) {
   return (
     <SectionContent>
-      <h1 className="mb-4 text-4xl font-bold">{title}</h1>
+      <h1 className="mb-6 text-4xl font-bold">{title}</h1>
       {children}
     </SectionContent>
   );
@@ -42,14 +42,12 @@ function Content({
 function Projects() {
   return projects.map((project) => (
     <li key={project.name} className="text-lg [&:not(:last-child)]:mb-4">
-      <div>
-        <h2 className="mb-2 text-2xl font-bold text-white">
-          <a href={project.url} className="hover:underline">
-            {project.name}
-          </a>
-        </h2>
-        <p className="max-w-[90ch]">{project.description}</p>
-      </div>
+      <h2 className="mb-2 text-2xl font-bold">
+        <a href={project.url} className="hover:underline">
+          {project.name}
+        </a>
+      </h2>
+      <p>{project.description}</p>
     </li>
   ));
 }
@@ -71,7 +69,7 @@ function Homepage() {
 
       <ScrollSection id="projects">
         <Content title="Projects">
-          <p className="mb-4 text-lg">
+          <p className="mb-5 text-lg">
             Here are some of my projects that I&apos;ve worked on.
           </p>
           <ul>

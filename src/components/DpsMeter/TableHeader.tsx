@@ -16,9 +16,9 @@ export function TableHeader() {
           <Cell type="header">C.HIT</Cell>
           <Cell type="header">D.HIT</Cell>
           <Cell type="header">C.D.HIT</Cell>
+          <Cell type="header">Deaths</Cell>
         </>
       )}
-      <Cell type="header">Deaths</Cell>
     </div>
   );
 }
