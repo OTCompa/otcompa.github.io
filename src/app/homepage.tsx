@@ -14,13 +14,22 @@ const projects = [
     name: "ZoneFbx",
     url: "https://github.com/OTCompa/ZoneFbx",
     description:
-      "A C# rewrite of its namesake, it is a program for extracting maps from FFXIV into .FBX for use within 3D modeling software.",
+    <>
+      A C# rewrite of its namesake, it is a program for extracting maps from FFXIV into .FBX for use within 3D modeling software. <br/>
+      Also has an accompanying <a className="underline text-slate-100 hover:text-slate-400" href="https://github.com/OTCompa/ZoneFbxBlenderPlugin">Blender plugin</a> to mimick the game&apos;s texture blending.
+    </>
   },
   {
     name: "John Finalfantasy",
     url: "https://github.com/OTCompa/john-finalfantasy",
     description:
       "A rewrite of the plugin Nomina Occulta by Anna. It is a Dalamud plugin that masks your character's and other party member's names in FFXIV, kind of like a streamer mode.",
+  },
+  {
+    name: "Voiced Nael Quotes",
+    url: "https://github.com/OTCompa/VoicedNaelQuotes",
+    description:
+      "A Dalamud plugin to add in-world directional voice acting to Nael's lines in The Unending Coil of Bahamut (Ultimate)."
   },
 ];
 
@@ -42,12 +51,12 @@ function Content({
 function Projects() {
   return projects.map((project) => (
     <li key={project.name} className="text-lg [&:not(:last-child)]:mb-4">
-      <h2 className="mb-2 text-2xl font-bold">
+      <h2 className="mb-2 text-2xl font-bold text-slate-100 hover:text-slate-400">
         <a href={project.url} className="hover:underline">
           {project.name}
         </a>
       </h2>
-      <p>{project.description}</p>
+      <p >{project.description}</p>
     </li>
   ));
 }
