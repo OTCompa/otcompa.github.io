@@ -5,10 +5,10 @@ import SectionContent from "@/components/Layout/SectionContent";
 
 const projects = [
   {
-    name: "NAUR projects",
-    url: "https://github.com/naurffxiv",
+    name: "Mapo Tofu",
+    url: "https://github.com/OTCompa/MapoTofu",
     description:
-      "Various projects related to NAUR, especially the NAUR website and the bots used for it.",
+      "A Dalamud plugin to automatically open certain strategy boards based on encounter time elapsed or fight phases.",
   },
   {
     name: "ZoneFbx",
